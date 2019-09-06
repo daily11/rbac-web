@@ -1,6 +1,6 @@
 package com.swust.demo.rbac.tree;
 
-import com.swust.demo.rbac.biz.RoleAclBiz;
+import com.swust.demo.rbac.biz.RoleAclRelationBiz;
 import com.swust.demo.rbac.dto.AclModuleLevelDto;
 import com.swust.demo.rbac.param.RoleAclViewParam;
 
@@ -15,7 +15,7 @@ public class AclModuleRoleTree {
     //权限模块层级树相关
     AclModuleTree aclModuleTreeBiz = new AclModuleTree();
     //角色权限逻辑操作相关
-    RoleAclBiz roleAclBiz = new RoleAclBiz();
+    RoleAclRelationBiz roleAclBiz = new RoleAclRelationBiz();
 
     /**
      * 查询角色权限模块层级树
@@ -25,7 +25,7 @@ public class AclModuleRoleTree {
      */
     public List<AclModuleLevelDto> aclModuleTree(String rolename) {
         //1 查询角色对应的权限
-        List<RoleAclViewParam> roleAclList = findAllRoleAcl(rolename);
+        List<RoleAclViewParam> roleAclList = selectRoleAclViewParam(rolename);
         //2 查询权限层级树
         List<AclModuleLevelDto> aclModuleTree = aclModuleTreeBiz.aclModuleTree();
         //3 遍历角色对应的权限，再遍历权限层级树，找到角色权限在权限层级树中的位置，设置gouXuan属性为true
@@ -64,7 +64,7 @@ public class AclModuleRoleTree {
      * @param rolename
      * @return
      */
-    public List<RoleAclViewParam> findAllRoleAcl(String rolename) {
-        return roleAclBiz.findAllRoleAcl(rolename);
+    public List<RoleAclViewParam> selectRoleAclViewParam(String rolename) {
+        return roleAclBiz.selectRoleAclViewParam(rolename);
     }
 }

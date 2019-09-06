@@ -1,34 +1,34 @@
 package com.swust.demo.rbac.param;
 
 public class RoleAclViewParam {
-    private int roleId;
-    private int aclId;
+    private Long roleId;
+    private Long aclId;
     private String aclName;
     private String roleName;
 
     public RoleAclViewParam() {
     }
 
-    public RoleAclViewParam(int roleId, int aclId, String aclName, String roleName) {
+    public RoleAclViewParam(Long roleId, Long aclId, String aclName, String roleName) {
         this.roleId = roleId;
         this.aclId = aclId;
         this.aclName = aclName;
         this.roleName = roleName;
     }
 
-    public int getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 
-    public int getAclId() {
+    public Long getAclId() {
         return aclId;
     }
 
-    public void setAclId(int aclId) {
+    public void setAclId(Long aclId) {
         this.aclId = aclId;
     }
 

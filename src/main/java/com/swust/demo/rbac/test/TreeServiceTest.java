@@ -1,36 +1,28 @@
 package com.swust.demo.rbac.test;
 
+import com.swust.demo.rbac.dto.AclModuleLevelDto;
 import com.swust.demo.rbac.service.TreeService;
+import com.swust.demo.rbac.service.impl.TreeServiceImpl;
 
-/**
- * 功能描述：权限层级树服务类
- */
+import java.util.List;
+
 public class TreeServiceTest {
-    //测试的用户ID
-    public static int userId = 4;
+    static TreeServiceImpl treeService = new TreeServiceImpl();
 
     public static void main(String[] args) {
-        //权限层级树服务类
-        TreeService treeService = new TreeService();
+//        List<AclModuleLevelDto> treeList = treeService.aclModuleTree();
+//        System.out.println(treeList.get(0).toString());
 
-//        权限层级树测试
-//        List<AclModuleLevelDto> list1 = treeService.aclModuleTree();
-//        Gson gson1 = new Gson();
-//        System.out.println("权限层级树 测试结果："+gson1.toJson(list1));
+//        List<AclModuleLevelDto> list = treeService.aclModuleTreeByUserIdAndname(1, "cyx");
+//        System.out.println(list);
+    }
 
-//        个人权限测试
-//        List<Acl> list2 = treeService.userAcls(userId);
-//        Gson gson2 = new Gson();
-//        System.out.println("个人权限 测试结果："+gson2.toJson(list2));
-
-        //个人角色权限测试
-//        List<Acl> list4 = treeService.findUserAclsBySingle(userId,"xc");
-//        Gson gson4 = new Gson();
-//        System.out.println("个人权限 测试结果：" + gson4.toJson(list4));
-
-        //个人权限层级树测试
-//        List<AclModuleLevelDto> list3 = treeService.userAclModuleTree(userId);
-//        Gson gson3 = new Gson();
-//        System.out.println("个人权限层级树 测试结果："+gson3.toJson(list3));
+    public static void print(List<AclModuleLevelDto> list) {
+        for (AclModuleLevelDto levelDto : list) {
+            System.out.println(levelDto.getName());
+            if (levelDto.getAclModuleList() != null) {
+                print(levelDto.getAclModuleList());
+            }
+        }
     }
 }

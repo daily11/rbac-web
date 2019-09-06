@@ -3,11 +3,11 @@ package com.swust.demo.rbac.tree;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
-import com.swust.demo.rbac.bean.Acl;
-import com.swust.demo.rbac.bean.AclModule;
-import com.swust.demo.rbac.dao.AclDao;
-import com.swust.demo.rbac.dao.AclModuleDao;
-import com.swust.demo.rbac.dto.AclDto;
+import com.swust.demo.rbac.bean.AclInfo;
+import com.swust.demo.rbac.bean.AclModuleInfo;
+import com.swust.demo.rbac.dao.AclInfoDao;
+import com.swust.demo.rbac.dao.AclModuleInfoDao;
+import com.swust.demo.rbac.dto.AclInfoDto;
 import com.swust.demo.rbac.dto.AclModuleLevelDto;
 import com.swust.demo.rbac.util.LevelUtil;
 import org.apache.commons.collections.CollectionUtils;
@@ -18,16 +18,12 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 获取权限模块层级树
- *
- * @author chen
- */
 public class AclModuleTree {
+
     //权限模块数据持久化操作类
-    AclModuleDao aclModuleDao = new AclModuleDao();
+    AclModuleInfoDao aclModuleDao = new AclModuleInfoDao();
     //权限数据持久化操作类
-    AclDao aclDao = new AclDao();
+    AclInfoDao aclDao = new AclInfoDao();
 
     /**
      * 获取权限模块层级树【对外提供的方法】
@@ -36,13 +32,15 @@ public class AclModuleTree {
      */
     public List<AclModuleLevelDto> aclModuleTree() {
         //查询所有权限模块信息
-        List<AclModule> aclModuleList = aclModuleDao.find();
+        List<AclModuleInfo> aclModuleList = aclModuleDao.select();
+//        System.out.println(aclModuleList.toString());
 
         //将List<AclModule>转为List<AclModuleLevelDto>
         List<AclModuleLevelDto> dtoList = Lists.newArrayList();
-        for (AclModule aclModule : aclModuleList) {
+        for (AclModuleInfo aclModule : aclModuleList) {
             dtoList.add(AclModuleLevelDto.adapt(aclModule));
         }
+//        System.out.println(dtoList.toString());
 
         return aclModuleListToTree(dtoList);
     }
@@ -78,6 +76,8 @@ public class AclModuleTree {
             }
         });
 
+//        System.out.println(rootList.toString());
+
         /**
          * 1.4 递归组装权限模块层级树
          * @param rootList            当前层级的权限模块集合
@@ -86,10 +86,12 @@ public class AclModuleTree {
          */
         transformAclModuleTree(rootList, LevelUtil.ROOT, levelAclModuleMap);
 
+//        System.out.println(rootList.toString());
+
         /**
          * 1.5 递归更新层级树，使其格式符合前端标准
          */
-        for(int i=0;i<rootList.size();i++){
+        for (int i = 0; i < rootList.size(); i++) {
             updateTree(rootList.get(i));
         }
 
@@ -98,35 +100,35 @@ public class AclModuleTree {
 
     /**
      * 更新层级树，使其格式符合前端标准
+     *
      * @param aclModuleLevelDto
      */
-    public void updateTree(AclModuleLevelDto aclModuleLevelDto){
+    public void updateTree(AclModuleLevelDto aclModuleLevelDto) {
 
         //子权限模块
         List<AclModuleLevelDto> moduleList = aclModuleLevelDto.getAclModuleList();
         //子权限点
-        List<AclDto> aclList = aclModuleLevelDto.getAclList();
+        List<AclInfoDto> aclList = aclModuleLevelDto.getAclList();
 
         /**
-         * 1 如果aclList不为空，则将里面的对象转成AclModuleLevelDto格式，然后放到参数aclModuleLevelDto里面的自权限模块数组中
+         * 1 如果aclList不为空，则将里面的对象转成AclModuleLevelDto格式，然后放到参数aclModuleLevelDto里面的子权限模块数组中
          */
-        if(aclList.size()>0){
-            for(int i=0;i<aclList.size();i++){
-                AclDto aclDto = aclList.get(i);
+        if (aclList.size() > 0) {
+            for (int i = 0; i < aclList.size(); i++) {
+                AclInfoDto aclDto = aclList.get(i);
 
                 AclModuleLevelDto AclModuleLevelDtoJson = new AclModuleLevelDto();
                 AclModuleLevelDtoJson.setId(aclDto.getId());
                 //设置idName，唯一识别号
-                AclModuleLevelDtoJson.setIdName(""+aclDto.getId());
+                AclModuleLevelDtoJson.setIdName("" + aclDto.getId());
                 AclModuleLevelDtoJson.setName(aclDto.getName());
-                AclModuleLevelDtoJson.setParentId(1);
+                AclModuleLevelDtoJson.setParentId((long) 1);
                 AclModuleLevelDtoJson.setLevel("0.1");
                 AclModuleLevelDtoJson.setSeq(1);
                 AclModuleLevelDtoJson.setStatus(1);
                 AclModuleLevelDtoJson.setRemark("");
-                AclModuleLevelDtoJson.setOperateIp("");
-                AclModuleLevelDtoJson.setOperateTime(new Timestamp(new Date().getTime()));
-                AclModuleLevelDtoJson.setOperator("");
+                AclModuleLevelDtoJson.setGmtCreate(new Timestamp(System.currentTimeMillis()));
+                AclModuleLevelDtoJson.setGmtModified(new Timestamp(System.currentTimeMillis()));
 
                 moduleList.add(AclModuleLevelDtoJson);
             }
@@ -137,8 +139,8 @@ public class AclModuleTree {
         /**
          * 3 如果moduleList不为空，则遍历里面的对象，找到子权限点，并执行子权限点向AclModuleLevelDto格式转换
          */
-        if(moduleList.size()>0){
-            for(int j=0;j<moduleList.size();j++){
+        if (moduleList.size() > 0) {
+            for (int j = 0; j < moduleList.size(); j++) {
                 AclModuleLevelDto aclModuleLevelDto1 = moduleList.get(j);
                 //递归更新权限层级树，使其符合前端标准
                 updateTree(aclModuleLevelDto1);
@@ -159,9 +161,10 @@ public class AclModuleTree {
         for (int i = 0; i < rootList.size(); i++) {
             //2.1 获取第i个层级权限模块
             AclModuleLevelDto dto = rootList.get(i);
-            dto.setIdName(dto.getId()+"key");
+            dto.setIdName(dto.getId() + "key");
             //2.2 获取第i个层级的下一个层级
             String nextLevel = LevelUtil.calculateLevel(level, dto.getId());
+//            System.out.println(nextLevel);
 
             //2.3 获取第i个层级权限模块的下一个层级的所有子权限模块集合
             List<AclModuleLevelDto> tempList = (List<AclModuleLevelDto>) levelAclModuleMap.get(nextLevel);
@@ -178,13 +181,15 @@ public class AclModuleTree {
                     //2.5.1 获取权限模块
                     AclModuleLevelDto levelDto = tempList.get(j);
                     //2.5.2 获取权限模块id
-                    int aclModuleId = levelDto.getId();
+                    long aclModuleId = levelDto.getId();
                     //2.5.3 根据“权限模块id”查询该权限模块下的所有“权限点”
-                    List<Acl> aclList = aclDao.findByModuleId(aclModuleId);
+                    List<AclInfo> aclList = aclDao.selectByModuleId(aclModuleId);
+//                        System.out.println("aclModuleId=" + aclModuleId);
+//                        System.out.println("aclList=" + aclList.toString());
                     //2.5.4 转换权限点格式
-                    List<AclDto> aclDtoList = Lists.newArrayList();
-                    for (Acl acl : aclList) {
-                        aclDtoList.add(AclDto.adapt(acl));
+                    List<AclInfoDto> aclDtoList = Lists.newArrayList();
+                    for (AclInfo acl : aclList) {
+                        aclDtoList.add(AclInfoDto.adapt(acl));
                     }
                     //2.5.5 将权限点组装到子权限模块中
                     levelDto.setAclList(aclDtoList);

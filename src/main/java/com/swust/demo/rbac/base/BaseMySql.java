@@ -18,7 +18,7 @@ public abstract class BaseMySql implements BaseSql {
     //数据库驱动加载
     public static String driverclass = "com.mysql.jdbc.Driver";
     //数据库连接url
-    public static String DB_URL = "jdbc:mysql://localhost:3306/permission";
+    public static String DB_URL = "jdbc:mysql://localhost:3306/permission_local?useUnicode=true&characterEncoding=UTF-8";
     //数据库名称
     public static String DB_NAME = "root";
     //数据库密码

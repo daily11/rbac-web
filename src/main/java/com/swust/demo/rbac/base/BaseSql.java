@@ -1,5 +1,7 @@
 package com.swust.demo.rbac.base;
 
+import java.util.List;
+
 /**
  * 数据库操作基类
  *
@@ -20,7 +22,7 @@ public interface BaseSql {
      *
      * @param id
      */
-    public abstract void delete(int id);
+    public abstract void delete(Long id);
 
     /**
      * 更新记录
@@ -34,7 +36,7 @@ public interface BaseSql {
      *
      * @return List<Object>
      */
-    public abstract Object find();
+    public abstract List select();
 
     /**
      * 查询某个记录
@@ -42,5 +44,5 @@ public interface BaseSql {
      * @param id 记录id
      * @return
      */
-    public abstract Object findById(int id);
+    public abstract Object selectById(Long id);
 }

@@ -1,7 +1,9 @@
 package com.swust.demo.rbac.util;
 
-import com.swust.demo.rbac.bean.AclModule;
-import com.swust.demo.rbac.dao.AclModuleDao;
+import com.swust.demo.rbac.bean.AclModuleInfo;
+import com.swust.demo.rbac.bean.UsergroupInfo;
+import com.swust.demo.rbac.dao.AclModuleInfoDao;
+import com.swust.demo.rbac.dao.UsergroupInfoDao;
 
 /**
  * 功能描述：获取模块所属层级的工具类
@@ -21,7 +23,7 @@ public class LevelUtil {
      * @param parentId    父级部门id
      * @return
      */
-    public static String calculateLevel(String parentLevel, int parentId) {
+    public static String calculateLevel(String parentLevel, Long parentId) {
         if (parentLevel == null) {
             return ROOT;
         }
@@ -35,11 +37,19 @@ public class LevelUtil {
      * @param aclModuleId  权限模块
      * @return 权限模块层级
      */
-    public static String getAclModuleLevel(AclModuleDao aclModuleDao, Integer aclModuleId) {
-        AclModule aclModule = aclModuleDao.findById(aclModuleId);
+    public static String getAclModuleLevel(AclModuleInfoDao aclModuleDao, Long aclModuleId) {
+        AclModuleInfo aclModule = aclModuleDao.selectById(aclModuleId);
         if (aclModule == null) {
             return null;
         }
         return aclModule.getLevel();
+    }
+
+    public static String getUsergroupLevel(UsergroupInfoDao usergroupInfoDao, Long usergroupId) {
+        UsergroupInfo usergroupInfo = usergroupInfoDao.selectById(usergroupId);
+        if (usergroupInfo == null) {
+            return null;
+        }
+        return usergroupInfo.getGroupPath();
     }
 }
