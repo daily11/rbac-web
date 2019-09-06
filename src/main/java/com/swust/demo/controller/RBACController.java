@@ -1,15 +1,12 @@
 package com.swust.demo.controller;
 
 import com.swust.demo.rbac.bean.*;
-import com.swust.demo.rbac.dto.AclModuleLevelDto;
+import com.swust.demo.rbac.dto.*;
 import com.swust.demo.rbac.service.*;
 import com.swust.demo.rbac.service.impl.*;
-import com.swust.demo.util.Result;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.swust.demo.util.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Iterator;
 import java.util.List;
 
 @RequestMapping("/rbac")
@@ -31,8 +28,6 @@ public class RBACController {
     UserInfoService userService = new UserInfoServiceImpl();
     //用户组服务
     UsergroupInfoService usergroupInfoService = new UsergroupInfoServiceImpl();
-//    @Autowired
-//    SysAclService sysAclService;
 
     /**
      * 保存功能模块

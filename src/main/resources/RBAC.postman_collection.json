@@ -1,0 +1,1227 @@
+{
+	"info": {
+		"_postman_id": "73c232c9-0803-4e54-aa21-35a31c800697",
+		"name": "RBAC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查询",
+			"item": [
+				{
+					"name": "查询所有的功能模块",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAllAclModule",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAllAclModule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据功能模块id查询功能模块",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAclModuleById?aclModuleId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAclModuleById"
+							],
+							"query": [
+								{
+									"key": "aclModuleId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询所有功能点",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAllAcl",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAllAcl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据功能点id查询功能点",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAclById?aclid=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAclById"
+							],
+							"query": [
+								{
+									"key": "aclid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询所有的角色功能",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAllRoleAcl",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAllRoleAcl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据角色功能id查询角色功能",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findRoleAclById?roleAclId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findRoleAclById"
+							],
+							"query": [
+								{
+									"key": "roleAclId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据角色查询角色功能",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/fidRoleAclByRolename?roleName=管理员",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"fidRoleAclByRolename"
+							],
+							"query": [
+								{
+									"key": "roleName",
+									"value": "管理员"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询所有角色",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAllRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAllRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id查询角色",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findRoleById?roleId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findRoleById"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询层级树",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/aclModuleTree",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"aclModuleTree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据角色名---查询角色权限模块层级树",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/aclModuleTreeByRolename?roleName=cyx",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"aclModuleTreeByRolename"
+							],
+							"query": [
+								{
+									"key": "roleName",
+									"value": "cyx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据用户id及用户名---查询权限层级树",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/aclModuleTreeByUserIdAndname?userid=1&name=cyx",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"aclModuleTreeByUserIdAndname"
+							],
+							"query": [
+								{
+									"key": "userid",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "cyx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id查询用户权限",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/userAcls?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"userAcls"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询系统预定义给用户对应角色的权限",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findUserAclsBySystem?userid=1&name=cyx",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findUserAclsBySystem"
+							],
+							"query": [
+								{
+									"key": "userid",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "cyx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询用户自己的，非系统预定义的权限",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findUserAclsBySingle?userid=1&name=cyx",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findUserAclsBySingle"
+							],
+							"query": [
+								{
+									"key": "userid",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "cyx"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询用户组角色关联记录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAllUserRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAllUserRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id查询用户组角色关联记录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findUserRoleById?userRoleId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findUserRoleById"
+							],
+							"query": [
+								{
+									"key": "userRoleId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询用户",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAllUser",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAllUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id查询用户",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findUserById?userId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findUserById"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询用户组",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findAllUsergroup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findAllUsergroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id查询用户组",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/findUsergroupById?usergroupId=23",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"findUsergroupById"
+							],
+							"query": [
+								{
+									"key": "usergroupId",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "更新",
+			"item": [
+				{
+					"name": "更新功能模块",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"3\",\n\t\"name\":\"查询模块\",\n\t\"parentId\":\"1\",\n\t\"level\":\"0.1\",\n\t\"seq\":\"2\",\n\t\"status\":\"1\",\n\t\"remark\":\"查询模块11\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/updateAclModule",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"updateAclModule"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "查询模块",
+									"disabled": true
+								},
+								{
+									"key": "parentId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "level",
+									"value": "0.1",
+									"disabled": true
+								},
+								{
+									"key": "seq",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "remark",
+									"value": "查询模块1",
+									"disabled": true
+								},
+								{
+									"key": "gmtCreate",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "gmtModified",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " 更新功能点",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"4\",\n\t\"code\":\"444\",\n\t\"name\":\"查询2\",\n\t\"aclModuleId\":\"3\",\n\t\"url\":\"/query2\",\n\t\"type\":\"1\",\n\t\"status\":\"1\",\n\t\"seq\":\"2\",\n\t\"remark\":\"查询222\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/updateAcl",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"updateAcl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新角色功能关联记录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"4\",\n\t\"roleId\":\"3\",\n\t\"aclId\":\"444\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/updateRoleAcl",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"updateRoleAcl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新角色",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"1\",\n\t\"name\":\"管理员\",\n\t\"type\":\"1\",\n\t\"status\":\"1\",\n\t\"remark\":\"111--\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/updateRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"updateRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户组角色关联记录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"14\",\n\t\"userGroupId\":\"20\",\n\t\"roleId\":\"144\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/updateUserRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"updateUserRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"2\",\n\t\"userName\":\"zou\",\n\t\"password\":\"123456\",\n\t\"userType\":\"1\",\n\t\"description\":\"zou\",\n\t\"accountState\":\"111\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/updateUser",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户组",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"23\",\n\t\"groupName\":\"用户组2\",\n\t\"parentId\":\"2\",\n\t\"description\":\"asdf222\",\n\t\"groupKey\":\"asdfaasd111\",\n\t\"groupPath\":\"b.2\",\n\t\"groupType\":\"2\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/updateUsergroup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"updateUsergroup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "保存",
+			"item": [
+				{
+					"name": "保存功能模块",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"查询模块1\",\n\t\"parentId\":\"3\",\n\t\"seq\":\"1\",\n\t\"status\":\"1\",\n\t\"remark\":\"查询模块1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/saveAclModule",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"saveAclModule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存功能点",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"查询3\",\n\t\"aclModuleId\":\"3\",\n\t\"url\":\"/query3\",\n\t\"type\":\"1\",\n\t\"status\":\"1\",\n\t\"seq\":\"1\",\n\t\"remark\":\"查询333\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/saveAcl",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"saveAcl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存角色功能关联记录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roleId\":\"4\",\n\t\"aclId\":\"81\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/saveRoleAcl",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"saveRoleAcl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存角色",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"管理员111\",\n\t\"type\":\"1\",\n\t\"status\":\"1\",\n\t\"remark\":\"1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/saveRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"saveRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存用户组角色关联记录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userGroupId\":\"11\",\n\t\"roleId\":\"22\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/saveUserRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"saveUserRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\":\"test\",\n\t\"password\":\"123456\",\n\t\"userType\":\"1\",\n\t\"description\":\"test\",\n\t\"accountState\":\"1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/saveUser",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"saveUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存用户组",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"groupName\":\"用户组2\",\n\t\"parentId\":\"2\",\n\t\"description\":\"asdf\",\n\t\"groupKey\":\"asdfa\",\n\t\"groupType\":\"1\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/saveUsergroup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"saveUsergroup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "删除",
+			"item": [
+				{
+					"name": "删除功能模块",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/rbac/deleteAclModule?aclModuleId=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"deleteAclModule"
+							],
+							"query": [
+								{
+									"key": "aclModuleId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除功能点",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/deleteAcl?aclId=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"deleteAcl"
+							],
+							"query": [
+								{
+									"key": "aclId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除角色功能",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/deleteRoleAcl?roleAclId=9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"deleteRoleAcl"
+							],
+							"query": [
+								{
+									"key": "roleAclId",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除角色",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/deleteRole?roleId=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"deleteRole"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除用户组角色关联记录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/deleteUserRole?userRoleId=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"deleteUserRole"
+							],
+							"query": [
+								{
+									"key": "userRoleId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除用户",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/deleteUser?userId=15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"deleteUser"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除用户组",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/deleteUsergroup?usergroupId=23",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"deleteUsergroup"
+							],
+							"query": [
+								{
+									"key": "usergroupId",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "绑定",
+			"item": [
+				{
+					"name": "绑定用户组-角色信息",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/bindUserRole?roleId=20&userIdList=1,2,3,4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"bindUserRole"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "20"
+								},
+								{
+									"key": "userIdList",
+									"value": "1,2,3,4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "功能模块与功能点绑定",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rbac/bondAclModule?ids=5,6&aclModuleId=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rbac",
+								"bondAclModule"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "5,6"
+								},
+								{
+									"key": "aclModuleId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
